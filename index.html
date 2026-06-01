@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card"> 
+        <div class="convert">
+            <select class="from-currency">
+                <option value="" disabled selected>Select Currency</option>
+            </select>
+            <select class="to-currency">
+                <option value="" disabled selected>Select Currency</option>
+            </select>
+        </div>
+        <div class="amount">
+            <input type="number" placeholder="Amount" class="amount-input">
+        </div>
+        <div class="convert-button">
+            <button>Convert</button>
+        </div>
+        <div class="final">
+            <div class="error">
+                <p>Conversion failed. Please try again.</p>
+            </div>
+            <div class = "conversion-rate">
+                <p class="rate"></p>
+            </div>
+            <div class="final-result">
+                <p>Converted Amount: </p>
+                <p class="result"></p>
+            </div>
+        </div>
+    </div> 
+
+    <script>
+
+        const apikey = "cb12ff522fae7b5c4cc5542c";
+        const apiurl = "https://v6.exchangerate-api.com/v6/";
+
+        const fromc = document.querySelector(".from-currency");
+        const toc = document.querySelector(".to-currency");
+        const amountinput = document.querySelector(".amount-input");
+        const convertbutton = document.querySelector(".convert-button button");
+        
+
+        async function getCurrencies(){
+            const response1 = await fetch(apiurl + `${apikey}` + '/latest/USD');
+            const data1 = await response1.json();
+
+            const currencies = Object.keys(data1.conversion_rates);
+
+            currencies.forEach(currency => {
+                fromc.innerHTML += `<option value="${currency}">${currency}</option>`;
+                toc.innerHTML += `<option value="${currency}">${currency}</option>`;
+            });
+
+            fromc.value = "USD";
+            toc.value = "EUR";
+        }
+
+        async function getExchangeRate(){
+
+            const response = await fetch(apiurl + `${apikey}` + '/pair/' + `${fromc.value}` + '/' + `${toc.value}` + '/' + `${amountinput.value}`);
+            
+            if(!response.ok){
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".final").style.display = "none";
+            }
+            else{
+            
+            const data = await response.json();
+
+            document.querySelector(".rate").innerHTML = `1 ${fromc.value} = ${data.conversion_rate} ${toc.value}`;
+            document.querySelector(".result").innerHTML = data.conversion_result;
+
+            console.log(data);
+
+            document.querySelector(".final").style.display = "block";
+            document.querySelector(".final-result").style.display = "block";
+            document.querySelector(".error").style.display = "none";
+
+            }
+        }
+
+        getCurrencies();
+        convertbutton.addEventListener("click", () => {
+            getExchangeRate();
+        });
+
+    </script>
+
+</body>
+</html>

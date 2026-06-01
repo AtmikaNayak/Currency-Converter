@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #071d01,
+        #153d0a,
+        #1f5a0f,
+        #153d0a,
+        #071d01
+    );
+
+    color: white;
+}
+
+.card{
+    width: 90%;
+    max-width: 550px;
+
+    padding: 2rem;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.3),
+        inset 0 1px 1px rgba(255,255,255,0.1);
+
+    text-align: center;
+}
+
+.card h1{
+    margin-bottom: 1.5rem;
+}
+
+.convert{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.convert select{
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.12);
+    color: white;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.convert select option{
+    color: black;
+}
+
+.amount{
+    margin-bottom: 1.5rem;
+}
+
+.amount input{
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.12);
+    color: white;
+
+    outline: none;
+}
+
+.amount input::placeholder{
+    color: rgba(255,255,255,0.7);
+}
+
+.convert-button{
+    margin-bottom: 1.5rem;
+}
+
+.convert-button button{
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #3cb043;
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.convert-button button:hover{
+    transform: translateY(-2px);
+    background: #49c752;
+}
+
+.convert-button button:active{
+    transform: scale(0.98);
+}
+
+.error{
+    display: none;
+
+    margin-top: 1rem;
+
+    color: #ff6b6b;
+    font-size: 0.95rem;
+}
+
+.conversion-rate{
+    margin-top: 1rem;
+}
+
+.rate{
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+}
+
+.final-result{
+    margin-top: 1.5rem;
+    display : none;
+}
+
+.final-result p:first-child{
+    margin-bottom: 0.5rem;
+}
+
+.result{
+    font-size: 2rem;
+    font-weight: 700;
+}
