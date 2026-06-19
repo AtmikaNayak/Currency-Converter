@@ -1,160 +1,136 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-    min-height: 100vh;
-
+body {
+    background-color: #1a1e19;
+    color: #e2e8df;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background: linear-gradient(
-        135deg,
-        #071d01,
-        #153d0a,
-        #1f5a0f,
-        #153d0a,
-        #071d01
-    );
-
-    color: white;
+    min-height: 100vh;
 }
 
-.card{
-    width: 90%;
-    max-width: 550px;
-
-    padding: 2rem;
-
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 24px;
-
-    box-shadow:
-        0 8px 32px rgba(0,0,0,0.3),
-        inset 0 1px 1px rgba(255,255,255,0.1);
-
-    text-align: center;
+.card {
+    background-color: #242a22;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 400px;
 }
 
-.card h1{
-    margin-bottom: 1.5rem;
-}
-
-.convert{
+.convert {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.convert select{
+.from-currency, 
+.to-currency {
     flex: 1;
-
     padding: 12px;
-
-    border: none;
-    border-radius: 12px;
-
-    background: rgba(255,255,255,0.12);
-    color: white;
-
+    border: 1px solid #3c4738;
+    border-radius: 8px;
+    background-color: #1a1e19;
+    color: #e2e8df;
+    font-size: 14px;
     outline: none;
+    transition: border-color 0.3s;
     cursor: pointer;
 }
 
-.convert select option{
-    color: black;
+.from-currency:focus, 
+.to-currency:focus {
+    border-color: #609633;
 }
 
-.amount{
-    margin-bottom: 1.5rem;
+.amount {
+    margin-bottom: 20px;
 }
 
-.amount input{
+.amount-input {
     width: 100%;
-
-    padding: 14px;
-
-    border: none;
-    border-radius: 12px;
-
-    background: rgba(255,255,255,0.12);
-    color: white;
-
+    padding: 12px;
+    border: 1px solid #3c4738;
+    border-radius: 8px;
+    background-color: #1a1e19;
+    color: #e2e8df;
+    font-size: 16px;
     outline: none;
+    transition: border-color 0.3s;
 }
 
-.amount input::placeholder{
-    color: rgba(255,255,255,0.7);
+.amount-input:focus {
+    border-color: #609633;
 }
 
-.convert-button{
-    margin-bottom: 1.5rem;
-}
-
-.convert-button button{
+.convert-button button {
     width: 100%;
-
     padding: 14px;
-
+    background-color: #507d2a;
+    color: #ffffff;
     border: none;
-    border-radius: 12px;
-
-    background: #3cb043;
-    color: white;
-
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: 600;
-
     cursor: pointer;
-
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
-.convert-button button:hover{
-    transform: translateY(-2px);
-    background: #49c752;
+.convert-button button:hover {
+    background-color: #609633;
 }
 
-.convert-button button:active{
+.convert-button button:active {
     transform: scale(0.98);
 }
 
-.error{
+.final {
+    margin-top: 25px;
+    text-align: center;
     display: none;
-
-    margin-top: 1rem;
-
-    color: #ff6b6b;
-    font-size: 0.95rem;
 }
 
-.conversion-rate{
-    margin-top: 1rem;
+.error {
+    color: #ff8a8a;
+    background-color: #3b2828;
+    padding: 12px;
+    border-radius: 8px;
+    display: none; 
+    font-size: 14px;
+    border: 1px solid #5c3535;
 }
 
-.rate{
-    color: rgba(255,255,255,0.85);
-    font-size: 0.95rem;
+.conversion-rate {
+    margin-bottom: 10px;
 }
 
-.final-result{
-    margin-top: 1.5rem;
-    display : none;
+.conversion-rate .rate {
+    color: #9ab887;
+    font-size: 14px;
 }
 
-.final-result p:first-child{
-    margin-bottom: 0.5rem;
+.final-result {
+    background-color: #1a1e19;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #3c4738;
+    display: none;
 }
 
-.result{
-    font-size: 2rem;
-    font-weight: 700;
+.final-result p:first-child {
+    font-size: 14px;
+    color: #609633;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.final-result .result {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
 }
