@@ -51,11 +51,15 @@ No automated tests are configured for this project.
 
 This project is fully client-side and can be integrated into larger applications by embedding the conversion interface or reusing the API integration logic.
 
-## Screenshots
+## Visuals
 
 ### Home Page
 
 ![Currency Converter](Images/currency-converter.png)
+
+## Live Demo
+
+https://currency-converter-dusky-theta.vercel.app/
 
 ## Additional Resources
 
